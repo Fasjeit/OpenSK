@@ -16,6 +16,7 @@ successfully tested on the following boards:
 
 *   [Nordic nRF52840-DK](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-DK)
 *   [Nordic nRF52840-dongle](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-Dongle)
+*   [Makerdiary nRF52840 MDK USB Dongle](https://github.com/makerdiary/nrf52840-mdk-usb-dongle)
 
 ## Disclaimer
 
