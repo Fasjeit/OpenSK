@@ -1,5 +1,51 @@
 # <img alt="OpenSK logo" src="docs/img/OpenSK.svg" width="200px">
 
+ПОРТ МОЖЕТ МЕНЯТЬСЯ ПОСЛЕ ПРОШИВОК! ПРОВЕРЯТЬ КОРТ ПЕРЕД КАЖДОЙ ПРОШИВКОЙ!
+
+Для работы необходимо заменить загрузчик на u2f.
+
+Для этого нужно установить утилитку nrfutil
+
+```
+pip install nrfutil
+nrfutil dfu usb-serial -pkg uf2_bootloader-0.2.13-44-gb2b4284-nosd_signed.zip -p <your-serial-port-name>
+```
+
+Имя порта в формате `COM<N>` для винды.
+Ссылка на инсрукцию и бутлоадеры - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/firmware/open_bootloader
+
+После обновления bootloader'а необходимо зайти в режим прошивки (зажать кнопку при коннекте или два ража нажать на кнопку после подключения (см проблемы).
+Загрузить в корень открывшегося устройства opensk_nrf52840_mdk_usb_dongle_gece14d7.uf2 (ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/firmware/OpenSK)
+
+После чего всё должно работать.
+
+Ссылка на wiki - https://wiki.makerdiary.com/nrf52840-mdk-usb-dongle/opensk/getting-started/
+
+Для того чтобы вернуть старый загрузчик нужна утилитка adafruit-nrfutil
+
+```
+pip3 install --user adafruit-nrfutil
+adafruit-nrfutil --verbose dfu serial --package nrf52840_mdk_usb_dongle_open_bootloader_v1.2.0.uf2.zip -p <serial-port-name> -b 115200 --singlebank
+```
+
+Почему то путь не подцепился до adafruit-nrfutil. Указывал путь руками 
+```
+C:\Users\Fasjeit\AppData\Roaming\Python\Python36\Scripts\adafruit-nrfutil.exe --verbose dfu serial --package nrf52840_mdk_usb_dongle_open_bootloader_v1.2.0.uf2.zip -p COM4 -b 115200 --singlebank
+```
+
+## Проблемы
+### После прошивки на u2f bootloader не входит в режим bootloader'а при нажатии на кнопку во время подключения
+Решение - два ража нажать на кнопку. Ссылка - https://learn.adafruit.com/adafruit-feather-m0-express-designed-for-circuit-python-circuitpython/uf2-bootloader-details
+
+### При нажатии на кнопку плата перезапускается
+Проблема в том, что кнопку можно настроить на ребут, что и происходит при использовании примеров из Nordic SDK. Выставляется переменная, котьрая влияет на функционирование кнопки. В результате данных режим сохраняется даже при перепрошвке. Решение - прошить прошивкой, которая сбрасывает данный флаг.
+ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/issues/14
+ещё ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/issues/9
+прошивка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/examples/nrf5-sdk/pselreset_erase/hex
+
+
+
+
 [![Build Status](https://travis-ci.org/google/OpenSK.svg?branch=master)](https://travis-ci.org/google/OpenSK)
 
 ## OpenSK
