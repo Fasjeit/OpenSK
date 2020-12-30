@@ -43,8 +43,17 @@ C:\Users\Fasjeit\AppData\Roaming\Python\Python36\Scripts\adafruit-nrfutil.exe --
 ещё ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/issues/9
 прошивка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/examples/nrf5-sdk/pselreset_erase/hex
 
+### Окирпичивание
+Если удачно прошиться версией для nordiс токена, то кнопка будет ребутать устройство (из за различной распиновки) при нажатии. При это зайти в u2f загрузчик не будет возможно. Решение прошивка через вшешний программатор. Через rPi не получилось. Купил j-link, через него заработало.
 
+Распиновка j-link 
 
+![img](https://www.amebaiot.com.cn/wp-content/uploads/2019/07/start-2.png)
+
+Распиновка makerDiary Токена
+![img](https://wiki.makerdiary.com/nrf52840-mdk-usb-dongle/assets/images/nrf52840-mdk-usb-dongle-pinout.png)
+
+Закинул u2f bootloader [отсюда](https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/firmware/uf2_bootloader) через[j-flash lite](https://www.programmersought.com/article/43572405542/). Выбирал просто nrf52840 со стандартными параметрами. Hex файл залился, загрузчик работает.
 
 [![Build Status](https://travis-ci.org/google/OpenSK.svg?branch=master)](https://travis-ci.org/google/OpenSK)
 
