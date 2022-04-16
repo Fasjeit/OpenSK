@@ -1,6 +1,16 @@
 # <img alt="OpenSK logo" src="docs/img/OpenSK.svg" width="200px">
 
 update - не смог сейчас даже u2f bootloader засунуть на mdk. перешёл на nordic
+
+update2 - починил. корректная команда обновленя на u2f - 
+
+```
+nrfutil dfu serial -pkg uf2_bootloader-0.2.13-44-gb2b4284-nosd_signed.zip -p COM7
+```
+
+полностью снёс nrfutil и поставил последний. Заработало!
+
+
 инстуркции 
 https://github.com/google/OpenSK/blob/stable/docs/boards/nrf52840_dongle.md
 
