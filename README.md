@@ -1,5 +1,34 @@
 # <img alt="OpenSK logo" src="docs/img/OpenSK.svg" width="200px">
 
+update - не смог сейчас даже u2f bootloader засунуть на mdk. перешёл на nordic
+инстуркции 
+https://github.com/google/OpenSK/blob/stable/docs/boards/nrf52840_dongle.md
+https://github.com/google/OpenSK/blob/stable/docs/install.md
+https://github.com/google/OpenSK/blob/develop/docs/install.md
+
+сборка
+
+```
+./reset.sh
+./setup.sh
+```
+
+Сорка очищалки памяти
+```
+./deploy.py --board=nrf52840_dongle_dfu --programmer=none --erase_storage
+```
+
+Сборка самой штуки
+```
+./deploy.py --board=nrf52840_dongle_dfu --opensk --programmer=none
+```
+
+После сборки очищалки\штуки просто залить hex через nrf connect programmer. Не забыть нажимать clear file чтоб не было наслоение файлов при прошивке.
+
+
+Всё что ниже - старое.
+
+
 ПОРТ МОЖЕТ МЕНЯТЬСЯ ПОСЛЕ ПРОШИВОК! ПРОВЕРЯТЬ ПОРТ ПЕРЕД КАЖДОЙ ПРОШИВКОЙ!
 
 Для работы необходимо заменить загрузчик на u2f.
