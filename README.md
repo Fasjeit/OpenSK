@@ -1,6 +1,6 @@
 # <img alt="OpenSK logo" src="docs/img/OpenSK.svg" width="200px">
 
-ПОРТ МОЖЕТ МЕНЯТЬСЯ ПОСЛЕ ПРОШИВОК! ПРОВЕРЯТЬ КОРТ ПЕРЕД КАЖДОЙ ПРОШИВКОЙ!
+ПОРТ МОЖЕТ МЕНЯТЬСЯ ПОСЛЕ ПРОШИВОК! ПРОВЕРЯТЬ ПОРТ ПЕРЕД КАЖДОЙ ПРОШИВКОЙ!
 
 Для работы необходимо заменить загрузчик на u2f.
 
@@ -35,10 +35,10 @@ C:\Users\Fasjeit\AppData\Roaming\Python\Python36\Scripts\adafruit-nrfutil.exe --
 
 ## Проблемы
 ### После прошивки на u2f bootloader не входит в режим bootloader'а при нажатии на кнопку во время подключения
-Решение - два ража нажать на кнопку. Ссылка - https://learn.adafruit.com/adafruit-feather-m0-express-designed-for-circuit-python-circuitpython/uf2-bootloader-details
+Решение - два раза нажать на кнопку. Ссылка - https://learn.adafruit.com/adafruit-feather-m0-express-designed-for-circuit-python-circuitpython/uf2-bootloader-details
 
 ### При нажатии на кнопку плата перезапускается
-Проблема в том, что кнопку можно настроить на ребут, что и происходит при использовании примеров из Nordic SDK. Выставляется переменная, котьрая влияет на функционирование кнопки. В результате данных режим сохраняется даже при перепрошвке. Решение - прошить прошивкой, которая сбрасывает данный флаг.
+Проблема в том, что кнопку можно настроить на ребут, что и происходит при использовании примеров из Nordic SDK. Выставляется переменная, которая влияет на функционирование кнопки. В результате данных режим сохраняется даже при перепрошвке. Решение - прошить прошивкой, которая сбрасывает данный флаг.
 ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/issues/14
 ещё ссылка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/issues/9
 прошивка - https://github.com/makerdiary/nrf52840-mdk-usb-dongle/tree/master/examples/nrf5-sdk/pselreset_erase/hex
