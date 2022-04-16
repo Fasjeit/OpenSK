@@ -3,7 +3,9 @@
 update - не смог сейчас даже u2f bootloader засунуть на mdk. перешёл на nordic
 инстуркции 
 https://github.com/google/OpenSK/blob/stable/docs/boards/nrf52840_dongle.md
+
 https://github.com/google/OpenSK/blob/stable/docs/install.md
+
 https://github.com/google/OpenSK/blob/develop/docs/install.md
 
 сборка
