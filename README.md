@@ -11,6 +11,38 @@ nrfutil dfu serial -pkg uf2_bootloader-0.2.13-44-gb2b4284-nosd_signed.zip -p COM
 полностью снёс nrfutil и поставил последний. Заработало!
 
 
+*************
+
+mdk
+
+toolchaing setup
+https://wiki.makerdiary.com/nrf52840-mdk-usb-dongle/guides/opensk/building/#building-opensk
+
+reset storage mdk
+
+./deploy.py --board=nrf52840_mdk_dfu --programmer=none --erase_storage
+uf2conv -c -f 0xada52840 -o target/opensk.uf2 target/nrf52840_mdk_dfu_merged.hex
+
+build mdk 
+
+./deploy.py --board=nrf52840_mdk_dfu --programmer=none --opensk
+uf2conv -c -f 0xada52840 -o target/opensk.uf2 target/nrf52840_mdk_dfu_merged.hex
+
+
+nordic
+
+reset storage nordic
+
+./deploy.py --board=nrf52840_dongle_dfu --erase_storage --programmer=none
+
+build
+
+./deploy.py --board=nrf52840_dongle_dfu --opensk --programmer=none
+
+just write hex via app
+
+*************
+
 инстуркции 
 https://github.com/google/OpenSK/blob/stable/docs/boards/nrf52840_dongle.md
 
